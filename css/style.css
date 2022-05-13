@@ -17,13 +17,99 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
 /*----------------------Обнуление----------------------*/
 
 :root{
-  --cultured: #F8F9FB;
-  --alice-blue: #E1ECF7;
-  --baby-blue-eyes: #AECBEB;
-  --french-sky-blue: #83B0E1;
+  --hover-blue: #E1ECF7;
+  --btn-blue: #74a9e0;
   --bg-body: #18222c;
 }
 
 body{
   background-color: var(--bg-body);
+}
+
+section{
+  width: 1000px;
+  padding: 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
+input{
+  display: none;
+}
+
+.media-group{
+  width: 100%;
+  overflow: hidden;
+  transition: all .5s ease-out;
+}
+
+.media-container{
+  width: 500%;
+  line-height: 0;
+  transition: all .8s;
+}
+
+.media-element{
+  width: 20%;
+  float: left;
+  position: relative
+}
+
+.media-element > img{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.content-group{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-element{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-element label {
+  width: 15px;
+  height: 15px;
+  margin: 0 0 0 15px;
+  cursor: pointer;
+  display: block;
+  background-color: var(--btn-blue);
+  border: 2px solid var(--btn-blue);
+  border-radius: 50%;
+  transition: all .3s
+}
+
+.btn-element label:hover {
+  background-color: var(--hover-blue);
+  border: 2px solid var(--hover-blue);
+}
+
+#slide1:checked~.content-group .btn-element label:nth-child(1),
+#slide2:checked~.content-group .btn-element label:nth-child(2),
+#slide3:checked~.content-group .btn-element label:nth-child(3),
+#slide4:checked~.content-group .btn-element label:nth-child(4) {
+ background-color: transparent;
+}
+
+#slide1:checked~.media-group .media-container {
+  margin: 0 0 0 0;
+}
+
+ #slide2:checked~.media-group .media-container {
+  margin: 0 0 0 -100%;
+}
+
+ #slide3:checked~.media-group .media-container {
+  margin: 0 0 0 -200%;
+}
+
+ #slide4:checked~.media-group .media-container {
+  margin: 0 0 0 -300%;
 }
